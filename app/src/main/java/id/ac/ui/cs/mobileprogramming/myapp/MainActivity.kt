@@ -23,11 +23,24 @@ class MainActivity : AppCompatActivity() {
 
         button.setOnClickListener {
             if (isRunning) {
-                pauseTimer()
+                stopTimer()
             } else {
                 val time  = time_edit_text.text.toString()
-                time_in_milli_seconds = time.toLong() *60000L
-                startTimer(time_in_milli_seconds)
+                if (time.isEmpty()) {
+                    val dialogBuilder = AlertDialog.Builder(this)
+                    dialogBuilder.setMessage("Masukkan input berupa jumlah menit")
+                        // if the dialog is cancelable
+                        .setCancelable(false)
+                        // negative button text and action
+                        .setNegativeButton("Oke", DialogInterface.OnClickListener {
+                                dialog, id -> dialog.cancel()
+                        })
+                    val alert = dialogBuilder.create()
+                    alert.show()
+                } else {
+                    time_in_milli_seconds = time.toLong() *60000L
+                    startTimer(time_in_milli_seconds)
+                }
             }
         }
 
@@ -38,8 +51,6 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         val dialogBuilder = AlertDialog.Builder(this)
-
-        // set message of alert dialog
         dialogBuilder.setMessage("Apakah Anda yakin ingin keluar?")
             // if the dialog is cancelable
             .setCancelable(false)
@@ -50,16 +61,12 @@ class MainActivity : AppCompatActivity() {
             .setPositiveButton("Ya", DialogInterface.OnClickListener {
                     dialog, id -> finish()
             })
-
-        // create dialog box
         val alert = dialogBuilder.create()
-        // set title for alert dialog box
         alert.setTitle("Tutup Aplikasi")
-        // show alert dialog
         alert.show()
     }
 
-    private fun pauseTimer() {
+    private fun stopTimer() {
 
         button.text = "Start"
         countdown_timer.cancel()
