@@ -1,6 +1,5 @@
 package id.ac.ui.cs.mobileprogramming.myapp
 
-import android.R
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import id.ac.ui.cs.mobileprogramming.myapp.layout.FragmentOne
@@ -13,8 +12,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         supportFragmentManager.beginTransaction()
-            .add(R.id.container_a, FragmentOne())
-            .add(R.id.container_b, FragmentTwo())
+            .add(R.id.frame, FragmentOne())
             .commit()
     }
 }
