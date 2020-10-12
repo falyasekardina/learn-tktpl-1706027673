@@ -11,8 +11,6 @@ import androidx.lifecycle.ViewModelProvider
 import id.ac.ui.cs.mobileprogramming.myapp.R
 import id.ac.ui.cs.mobileprogramming.myapp.view.SharedViewModel
 import kotlinx.android.synthetic.main.fragment_one.*
-import kotlinx.android.synthetic.main.fragment_one.view.*
-
 
 class FragmentOne : Fragment() {
     private lateinit var viewModel: SharedViewModel

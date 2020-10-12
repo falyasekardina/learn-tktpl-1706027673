@@ -1,26 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
     android:padding="8dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Send Your Message"
+        android:textAlignment="center"
+        android:textColor="@android:color/background_dark"
+        android:textStyle="bold"
+        android:textSize="24sp"
+        android:typeface="normal" />
+
     <EditText
         android:id="@+id/editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
-        android:hint="Enter your message"
-        android:textColorHint="@android:color/background_dark"
-        android:textSize="16sp"
-        android:textStyle="bold" />
+        android:layout_marginBottom="20dp"
+        android:hint="Write something here"
+        android:paddingBottom="20dp"
+        android:textSize="20sp" />
+
     <Button
         android:id="@+id/btnSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@android:color/holo_blue_dark"
+        android:background="@drawable/button"
         android:padding="10dp"
-        android:text="Send Message"
+        android:text="Send"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 </LinearLayout>
