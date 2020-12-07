@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.net.wifi.WifiManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
@@ -26,17 +27,6 @@ public class MainActivity extends AppCompatActivity {
     private WifiManager wifiManager;
     private final int MY_PERMISSIONS_ACCESS_COARSE_LOCATION = 1;
     WifiReceiver receiverWifi;
-
-    // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("native-lib");
-    }
-
-    /**
-     * A native method that is implemented by the 'native-lib' native library,
-     * which is packaged with this application.
-     */
-    public native int Jniint();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,18 +48,6 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     wifiManager.startScan();
                 }
-            }
-        });
-        // Example of a call to a native method
-        TextView tv = findViewById(R.id.textView);
-        tv.setText("Call to a native method (rand a number)");
-
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Our magic JNI number is :" + String.valueOf(Jniint()) + " !", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
             }
         });
     }

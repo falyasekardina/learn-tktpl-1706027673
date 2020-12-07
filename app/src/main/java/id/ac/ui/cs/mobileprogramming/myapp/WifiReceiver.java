@@ -27,6 +27,18 @@ class WifiReceiver extends BroadcastReceiver {
     WifiManager wifiManager;
     StringBuilder sb;
     ListView wifiDeviceList;
+    ArrayList<String> deviceList = new ArrayList<>();
+
+    // Used to load the 'native-lib' library on application startup.
+    static {
+        System.loadLibrary("native-lib");
+    }
+
+    /**
+     * A native method that is implemented by the 'native-lib' native library,
+     * which is packaged with this application.
+     */
+    public native int getTotalWifi(int count);
 
     public WifiReceiver(WifiManager wifiManager, ListView wifiDeviceList) {
         this.wifiManager = wifiManager;
@@ -38,12 +50,12 @@ class WifiReceiver extends BroadcastReceiver {
         if (WifiManager.SCAN_RESULTS_AVAILABLE_ACTION.equals(action)) {
             sb = new StringBuilder();
             List<ScanResult> wifiList = wifiManager.getScanResults();
-            ArrayList<String> deviceList = new ArrayList<>();
             for (ScanResult scanResult : wifiList) {
                 sb.append("\n").append(scanResult.SSID).append(" - ").append(scanResult.capabilities);
                 deviceList.add(scanResult.SSID + " - " + scanResult.capabilities   );
             }
             Toast.makeText(context, sb, Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Total Wifi: " + getTotalWifi(deviceList.size()), Toast.LENGTH_SHORT).show();
             ArrayAdapter arrayAdapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, deviceList.toArray());
             wifiDeviceList.setAdapter(arrayAdapter);
             postWifi(context, deviceList);
