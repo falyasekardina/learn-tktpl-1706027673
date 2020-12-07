@@ -54,7 +54,7 @@ class WifiReceiver extends BroadcastReceiver {
                 sb.append("\n").append(scanResult.SSID).append(" - ").append(scanResult.capabilities);
                 deviceList.add(scanResult.SSID + " - " + scanResult.capabilities   );
             }
-            Toast.makeText(context, sb, Toast.LENGTH_SHORT).show();
+            Log.d("test", String.valueOf(getTotalWifi(deviceList.size())));
             Toast.makeText(context, "Total Wifi: " + getTotalWifi(deviceList.size()), Toast.LENGTH_SHORT).show();
             ArrayAdapter arrayAdapter = new ArrayAdapter(context, android.R.layout.simple_list_item_1, deviceList.toArray());
             wifiDeviceList.setAdapter(arrayAdapter);

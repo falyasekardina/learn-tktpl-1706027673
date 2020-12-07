@@ -8,14 +8,6 @@
 #include <jni.h>
 #include <jni.h>
 
-
-//jint Jniint() {
-//    srand((unsigned int) time(0));
-//    int intrandom = (rand() % (990 - 101)) + 101;
-//    return intrandom;
-//}
-
-
 JNIEXPORT jint JNICALL
 Java_id_ac_ui_cs_mobileprogramming_myapp_WifiReceiver_getTotalWifi(JNIEnv *env, jobject thiz, jint count) {
 // TODO: implement getTotalWifi()
