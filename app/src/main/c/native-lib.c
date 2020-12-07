@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <time.h>
 #include <jni.h>
+#include <jni.h>
 
 
 //jint Jniint() {
@@ -16,8 +17,8 @@
 
 
 JNIEXPORT jint JNICALL
-Java_id_ac_ui_cs_mobileprogramming_myapp_MainActivity_Jniint(JNIEnv *env, jobject this, jint count) {
-    // TODO: implement Jniint()
+Java_id_ac_ui_cs_mobileprogramming_myapp_WifiReceiver_getTotalWifi(JNIEnv *env, jobject thiz, jint count) {
+// TODO: implement getTotalWifi()
     return count;
 }
 
