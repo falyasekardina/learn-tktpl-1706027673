@@ -61,8 +61,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         // Example of a call to a native method
-        TextView tv = findViewById(R.id.onlyYou);
-        tv.setText("erev0s.com");
+        TextView tv = findViewById(R.id.textView);
+        tv.setText("Call to a native method (rand a number)");
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

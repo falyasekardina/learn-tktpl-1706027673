@@ -5,6 +5,7 @@
 #include <jni.h>
 #include <stdlib.h>
 #include <time.h>
+#include <jni.h>
 
 
 jint Jniint() {
@@ -13,9 +14,11 @@ jint Jniint() {
     return intrandom;
 }
 
-JNIEXPORT jint
-Java_com_erev0s_jniapp_MainActivity_Jniint(JNIEnv *env, jobject this)
-{
-return (jint) Jniint();
+
+JNIEXPORT jint JNICALL
+Java_id_ac_ui_cs_mobileprogramming_myapp_MainActivity_Jniint(JNIEnv *env, jobject this) {
+    // TODO: implement Jniint()
+    return (jint) Jniint();
 }
+
 
