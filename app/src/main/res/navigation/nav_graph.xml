@@ -15,4 +15,24 @@
         android:name="id.ac.ui.cs.mobileprogramming.myapp.PokemonListFragment"
         android:label="fragment_pokemon_list_list"
         tools:layout="@layout/fragment_pokemon_list_list" />
+    <fragment
+        android:id="@+id/FirstFragment"
+        android:name="id.ac.ui.cs.mobileprogramming.myapp.FirstFragment"
+        android:label="@string/first_fragment_label"
+        tools:layout="@layout/fragment_first">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/SecondFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/SecondFragment"
+        android:name="id.ac.ui.cs.mobileprogramming.myapp.SecondFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_second">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/FirstFragment" />
+    </fragment>
 </navigation>
